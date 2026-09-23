@@ -29,6 +29,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                deleteDir()          // start every build from a clean workspace
                 checkout scm
                 sh 'git log -1 --pretty=format:"Commit %h by %an: %s"'
             }
